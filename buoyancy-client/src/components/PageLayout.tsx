@@ -7,7 +7,7 @@ export type PageLayoutProps = {
 
 const PageLayout = ({ children, heading }: PageLayoutProps) => {
   return (
-    <div className="p-8">
+    <div className="p-8 space-y-8 w-full">
       {heading && <PageHeading>{heading}</PageHeading>}
       {children}
     </div>
