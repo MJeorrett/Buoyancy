@@ -1,11 +1,12 @@
 import { Link, useRouteError } from "react-router-dom";
 import { paths } from "../router";
+import PageHeading from "../components/PageHeading";
 
 const ErrorPage = () => {
   const error = useRouteError() as { statusText: string; message: string };
   return (
     <>
-      <h1>Something no workey...soz.</h1>
+      <PageHeading>Something no workey...soz.</PageHeading>
       <p>
         Go back <Link to={paths.home}>home</Link>.
       </p>

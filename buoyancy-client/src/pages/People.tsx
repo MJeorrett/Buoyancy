@@ -1,9 +1,7 @@
+import PageLayout from "../components/PageLayout";
+
 const PeoplePage = () => {
-  return (
-    <div>
-      <h1>People</h1>
-    </div>
-  );
+  return <PageLayout heading="People" />;
 };
 
 export default PeoplePage;

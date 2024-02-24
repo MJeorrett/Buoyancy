@@ -3,10 +3,11 @@ import Navigation from "./components/Navigation";
 
 const Root = () => {
   return (
-    <div>
+    <div className="h-screen flex">
       <Navigation />
-      <h1>Buoyancy</h1>
-      <Outlet />
+      <div className="h-screen">
+        <Outlet />
+      </div>
     </div>
   );
 };
