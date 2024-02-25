@@ -1,4 +1,14 @@
 # Buoyancy
+A planning tool for multi-disciplinary teams.
+
+## People
+![people page](./images/people-page.png)
+
+## Projects
+![projects page](./images/projects-page.png)
+
+## Roles
+![roles page](./images/roles-page.png)
 
 ## Glossary
 
