@@ -3,11 +3,13 @@ import Root from "./Root";
 import ErrorPage from "./pages/Error";
 import ProjectsPage from "./pages/Projects";
 import PeoplePage from "./pages/People";
+import RolesPage from "./pages/Roles";
 
 export const paths = {
   home: "/",
   projects: "/projects",
   people: "/people",
+  roles: "/roles",
 };
 
 const router = createBrowserRouter([
@@ -23,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/people",
         element: <PeoplePage />,
+      },
+      {
+        path: "/roles",
+        element: <RolesPage />,
       }
     ],
   },

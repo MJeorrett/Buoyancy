@@ -5,6 +5,7 @@ import {
   Users,
   Toolbox,
   Lifebuoy,
+  AddressBook,
 } from "@phosphor-icons/react";
 
 type NavigationLinkProps = {
@@ -34,6 +35,7 @@ const Navigation = () => {
         <ul className="space-y-4">
           <NavigationLink to={paths.people} label="People" Icon={Users} />
           <NavigationLink to={paths.projects} label="Projects" Icon={Toolbox} />
+          <NavigationLink to={paths.roles} label="Roles" Icon={AddressBook} />
         </ul>
       </nav>
     </div>
