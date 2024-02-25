@@ -8,7 +8,7 @@ const RolesPage = () => {
   const weekHeadings = mockRoles[0].hours.map((week) => week.weekCommencing);
 
   return (
-    <PageLayout heading="People">
+    <PageLayout heading="Roles">
       <Table
         data={mockRoles}
         headings={["ID", "Name", ...weekHeadings]}
