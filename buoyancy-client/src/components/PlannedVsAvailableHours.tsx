@@ -49,7 +49,7 @@ const PlannedVsAvailableHours = ({
     );
   }
 
-  return <span className={clsx("text-green-500")}>{plannedHours}</span>;
+  return <span className={className}>{plannedHours}</span>;
 };
 
 export default PlannedVsAvailableHours;

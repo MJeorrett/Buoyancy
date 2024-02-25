@@ -13,7 +13,7 @@ type RoleHoursProps = {
 
 const RoleHours = ({ requiredHours, plannedHours, Icon }: RoleHoursProps) => (
   <p className="flex space-x-2 items-center">
-    <Icon size={18} />
+    <Icon size={18} color={requiredHours === plannedHours ? "black" : undefined} />
     <PlannedVsAvailableHours
       className="min-w-4 text-center"
       plannedHours={plannedHours}
