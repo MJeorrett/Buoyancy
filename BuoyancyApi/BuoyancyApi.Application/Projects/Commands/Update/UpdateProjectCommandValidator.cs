@@ -7,7 +7,7 @@ public class UpdateProjectCommandValidator : AbstractValidator<UpdateProjectComm
 {
     public UpdateProjectCommandValidator()
     {
-        RuleFor(_ => _.Title)
+        RuleFor(_ => _.Name)
             .NotNull()
             .NotEmpty()
             .MaximumLength(256);

@@ -6,7 +6,7 @@ public class CreateProjectCommandValidator : AbstractValidator<CreateProjectComm
 {
     public CreateProjectCommandValidator()
     {
-        RuleFor(_ => _.Title)
+        RuleFor(_ => _.Name)
             .NotNull()
             .NotEmpty()
             .MaximumLength(256);

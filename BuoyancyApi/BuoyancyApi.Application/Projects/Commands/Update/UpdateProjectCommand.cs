@@ -10,7 +10,7 @@ public record UpdateProjectCommand
     [JsonIgnore]
     public int ProjectId { get; init; }
 
-    public string Title { get; init; } = null!;
+    public string Name { get; init; } = null!;
 }
 
 public class UpdateProjectCommandHandler : IRequestHandler<UpdateProjectCommand>
@@ -34,7 +34,7 @@ public class UpdateProjectCommandHandler : IRequestHandler<UpdateProjectCommand>
             return new(404);
         }
 
-        entity.Name = command.Title;
+        entity.Name = command.Name;
 
         await _dbContext.SaveChangesAsync(cancellationToken);
 

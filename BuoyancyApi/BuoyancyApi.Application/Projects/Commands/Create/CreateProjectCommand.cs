@@ -6,7 +6,7 @@ namespace BuoyancyApi.Application.Projects.Commands.Create;
 
 public class CreateProjectCommand
 {
-    public string Title { get; init; } = null!;
+    public string Name { get; init; } = null!;
 }
 
 public class CreateProjectCommandHandler : IRequestHandler<CreateProjectCommand, int>
@@ -24,7 +24,7 @@ public class CreateProjectCommandHandler : IRequestHandler<CreateProjectCommand,
     {
         var entity = new ProjectEntity
         {
-            Name = command.Title,
+            Name = command.Name,
         };
 
         _dbContext.Projects.Add(entity);

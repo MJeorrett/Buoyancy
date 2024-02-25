@@ -6,14 +6,14 @@ public record ProjectDto
 {
     public int Id { get; init; }
 
-    public string Title { get; init; } = "";
+    public string Name { get; init; } = "";
 
     public static ProjectDto MapFromEntity(ProjectEntity entity)
     {
         return new()
         {
             Id = entity.Id,
-            Title = entity.Name,
+            Name = entity.Name,
         };
     }
 }
