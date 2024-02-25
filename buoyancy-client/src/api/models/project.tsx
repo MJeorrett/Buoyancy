@@ -9,6 +9,7 @@ export type ProjectRequiredRole = {
   requiredRoles: {
     roleId?: 1 | 2 | 3 | 4 | 5;
     roleName?: string;
+    plannedHours: number;
     requiredHours: number;
   }[];
 }

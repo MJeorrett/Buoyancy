@@ -3,35 +3,30 @@ import mockProjects from "../api/mocks/projects";
 import Table from "../components/Table";
 import { roleIcons } from "../constants/roles";
 import { IconProps } from "@phosphor-icons/react";
+import PlannedVsAvailableHours from "../components/PlannedVsAvailableHours";
 
 type RoleHoursProps = {
   requiredHours: number;
+  plannedHours: number;
   Icon: React.FC<IconProps>;
 };
 
-const RoleHours = ({ requiredHours, Icon }: RoleHoursProps) => (
+const RoleHours = ({ requiredHours, plannedHours, Icon }: RoleHoursProps) => (
   <p className="flex space-x-2 items-center">
-    {requiredHours > 0 && (
-      <>
-        <Icon size={18} />
-        <span className="min-w-4 text-center">
-          {Math.round((requiredHours / 7.5) * 2) / 2}
-        </span>
-      </>
-    )}
-    {requiredHours === 0 && (
-      <>
-        <Icon size={18} color="lightGrey" />
-        <span className="min-w-4 text-center text-gray-300 font-bold">
-          -
-        </span>
-      </>
-    )}
+    <Icon size={18} />
+    <PlannedVsAvailableHours
+      className="min-w-4 text-center"
+      plannedHours={plannedHours}
+      availableHours={requiredHours}
+      danger="low"
+    />
   </p>
 );
 
 const ProjectsPage = () => {
-  const weekHeadings = mockProjects[0].requiredRolesByWeek.map((role) => role.weekCommencing);
+  const weekHeadings = mockProjects[0].requiredRolesByWeek.map(
+    (role) => role.weekCommencing
+  );
   return (
     <PageLayout heading="Projects">
       <Table
@@ -52,6 +47,7 @@ const ProjectsPage = () => {
                     <RoleHours
                       key={role.roleId}
                       requiredHours={role.requiredHours}
+                      plannedHours={role.plannedHours}
                       Icon={roleIcons[role.roleId!]}
                     />
                   ))}
