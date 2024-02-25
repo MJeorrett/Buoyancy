@@ -16,12 +16,36 @@ const RoleCellContents = ({ Icon, name }: RoleCellContentsProps) => (
   </p>
 );
 
+type PlannedVsAvailableHoursProps = {
+  plannedHours: number;
+  availableHours: number;
+};
+
+const PlannedVsAvailableHours = ({ plannedHours, availableHours}: PlannedVsAvailableHoursProps) => {
+  if (plannedHours === 0 && availableHours === 0) {
+    return <span className="text-gray-500">-</span>;
+  }
+  if (plannedHours < availableHours) {
+    return <span className="text-yellow-500"><b>{plannedHours} / {availableHours}</b> (-{availableHours-plannedHours})</span>;
+  }
+
+  if (plannedHours > availableHours) {
+    return <span className="text-red-500"><b>{plannedHours} / {availableHours}</b> (+{plannedHours-availableHours})</span>;
+  }
+
+  return <span className="text-green-500">{plannedHours}</span>;
+}
+
 const PeoplePage = () => {
+  const weekHeadings = mockPeople[0].hours.map(
+    (week) => week.weekCommencing
+  );
+
   return (
     <PageLayout heading="People">
       <Table
         data={mockPeople}
-        headings={["ID", "Name", "Role"]}
+        headings={["ID", "Name", "Role", ...weekHeadings]}
         renderRowCells={(person) => (
           <>
             <td className="px-6 py-4 whitespace-nowrap">{person.id}</td>
@@ -32,6 +56,11 @@ const PeoplePage = () => {
                 name={person.roleName}
               />
             </td>
+            {person.hours.map((week) => (
+              <td className="px-6 py-4 whitespace-nowrap">
+                <PlannedVsAvailableHours {...week} />
+              </td>
+            ))}
           </>
         )}
       />

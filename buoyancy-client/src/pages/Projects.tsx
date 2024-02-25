@@ -31,16 +31,12 @@ const RoleHours = ({ requiredHours, Icon }: RoleHoursProps) => (
 );
 
 const ProjectsPage = () => {
-  const headings = [
-    "ID",
-    "Name",
-    ...mockProjects[0].requiredRolesByWeek.map((role) => role.weekCommencing),
-  ];
+  const weekHeadings = mockProjects[0].requiredRolesByWeek.map((role) => role.weekCommencing);
   return (
     <PageLayout heading="Projects">
       <Table
         data={mockProjects}
-        headings={headings}
+        headings={["ID", "Name", ...weekHeadings]}
         renderRowCells={(project) => (
           <>
             <td className="px-6 py-4 whitespace-nowrap">{project.id}</td>
