@@ -1,10 +1,10 @@
-export type TableProps<T> = {
+export type TableProps<T extends { id: number }> = {
   data: T[];
   headings: string[];
   renderRowCells: (item: T) => React.ReactNode;
 };
 
-const Table = <T, >({
+const Table = <T extends { id: number }>({
   data,
   headings,
   renderRowCells,
@@ -15,7 +15,7 @@ const Table = <T, >({
         <thead className="text-xs uppercase border-b border-black">
           <tr>
             {headings.map((heading) => (
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-6 py-3" key={heading}>
                 {heading}
               </th>
             ))}
@@ -23,7 +23,10 @@ const Table = <T, >({
         </thead>
         <tbody>
           {data.map((item) => (
-            <tr className="border-b border-gray-300 hover:bg-gray-100">
+            <tr
+              key={item.id}
+              className="border-b border-gray-300 hover:bg-gray-100"
+            >
               {renderRowCells(item)}
             </tr>
           ))}
