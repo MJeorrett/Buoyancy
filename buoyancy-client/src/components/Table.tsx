@@ -10,7 +10,7 @@ const Table = <T extends { id: number }>({
   renderRowCells,
 }: TableProps<T>) => {
   return (
-    <div className="relative overflow-x-auto w-full border border-black shadow-lg">
+    <div className="relative overflow-x-auto w-full border border-black shadow-lg rounded-lg">
       <table className="w-full text-sm text-left rtl:text-right">
         <thead className="text-xs uppercase border-b border-black">
           <tr>
